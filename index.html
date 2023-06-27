@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마켓컬리 모작</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="command.js" defer></script>
+  <script src="jquery-3.6.4.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+  <!--최상단 이동 버튼-->
+  <section class="top-btn" style="cursor:pointer;" onclick="window.scrollTo(0,0);">
+    <span><i class="fa-solid fa-arrow-up"></i></span>
+  </section>
+  <!--탑 팝업-->
+  <section class="top-popup">
+    <div class="container">
+      <div class="text-box">
+        <a href="#">
+          <span>지금 가입하고 인기상품 100원에 받아 가세요!</span>
+        </a>
+      </div>
+      <div class="icon-box">
+        <span><i class="fa-solid fa-xmark"></i></span>
+      </div>
+    </div>
+  </section>
+  <!--장바구니 팝업-->
+  <div class="cart_popup">
+    <ul class="cart_popup__content">
+      <li class="cart_popup__md">
+        <p>[브랜드] 상품명</p>
+        <p class="merchandise-won">00,000원 <span class="merchandise-sale-won ">00,000원</span></p>
+      </li>
+      <li class="cart_popup__won">
+        <p class="merchandise-all-won">합계 <span>00,000원</span> </p>
+        <p class="merchandise-point"><span>적립</span> 로그인 후, 할인 혜택가와 적립 혜택제공</p>
+      </li>
+      <li class="cart_popup__btn">
+        <button class="cart_popup__delet-btn">
+          <span>취소</span>
+        </button>
+        <button class="cart_popup__cartin-btn">
+          <span>장바구니 담기</span>
+        </button>
+      </li>
+
+    </ul>
+  </div>
+
+  <header>
+    <section class="inform">
+      <ul>
+        <li>
+          <a href="#">
+            <span class="inform-purple">
+              회원가입
+            </span>
+          </a>
+        </li>
+        <li>
+          <span>ㅣ</span>
+        </li>
+        <li>
+          <a href="#">
+            <span>
+              로그인
+            </span>
+          </a>
+        </li>
+        <li>
+          <span>ㅣ</span>
+        </li>
+        <li class="inform__menu-1">
+          <a href="#">
+            <span>
+              고객센터
+            </span>
+            <span>
+              <i class="fa-solid fa-sort-down"></i>
+            </span>
+          </a>
+          <!--고객 센터 2차 메뉴-->
+          <ul class="inform__menu-2">
+            <li><a href="#"><span>공지사항</span></a></li>
+            <li><a href="#"><span>자주하는 질문</span></a></li>
+            <li><a href="#"><span>1:1 문의</span></a></li>
+            <li><a href="#"><span>대량 주문 문의</span></a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <div class="header__main">
+
+      <div class="header__main-1st-logo">
+        <ul>
+          <li class="logo">
+            <a href="#">
+              <svg width="82" height="42" viewBox="0 0 82 42" xmlns="http://www.w3.org/2000/svg">
+                <g fill-rule="nonzero" fill="none">
+                  <path d="M0 0h82v42H0z" />
+                  <path
+                    d="M62.5.965c1.026-.557 2.466-.718 3.356.107.89.825.676 2.048 0 3.973 0 0-1.505 4.066-3.055 8.262l-.398 1.08c-1.414 3.83-2.762 7.487-2.927 7.963-1.498 4.245 1.967 4.122 4.024-.152 1.159-2.394 2.644-6.357 2.644-6.357.524-1.563.682-2.504.359-2.828-.107-.113.045-.252.18-.323 2.269-1.149 4.63-.072 3.336 3.31l-.054.138c-.387.978-2.68 6.733-2.68 6.733-.676 1.66-.595 3.236.418 3.236.686-.004 1.46-.385 2.304-1.088 1.818-1.504 3.222-4.312 3.727-5.454.23-.508 1.087-2.42 1.766-4.361.236-.665.369-1.36.395-2.065a.443.443 0 0 1 .194-.459 3.578 3.578 0 0 1 1.67-.42 1.805 1.805 0 0 1 1.465.705c.443.598.566 1.579.103 2.808-.12.32-3.775 9.958-3.775 9.958v.026c2.041-1.223 3.87-1.313 4.953-.854l-.003-.013c1.495.647 1.99 2.44.938 3.559-.103.11-.362.084-.362-.09-.094-1.253-2.517-3.495-6.109-1.075l-.145.385-1.068 2.808c-2.62 7.018-5.403 12.136-9.415 11-2.688-.76-2.377-4.607.515-7.79a54.9 54.9 0 0 1 6.49-5.898c.068-.188.13-.35.188-.511.278-.78.491-1.434.792-2.265l.159-.518c-.178.2-.498.573-.712.812-.712.8-2.494 2.757-5.329 2.207l-.234-.052c-2.05-.508-2.608-1.986-2.655-3.277-2.142 2.656-4.351 3.426-5.807 3.39-1.948-.048-3.378-1.514-2.427-4.29 1.058-3.106 5.5-15.332 6.795-19 .485-1.58.666-2.58.184-2.974-.123-.103.052-.265.2-.346zm8.364 28.778c-1.103.88-5.526 4.53-6.752 7.441-.505 1.197-.376 2.149.488 2.233 1.96.194 4.012-3.818 6.228-9.512zM16.028 5.352c-.087.332-1.319 3.86-2.701 7.749l-.209.586-.21.589-.215.604c4.691-1.123 13.064-6.57 14.035-10.085.12-.161.29-.22.566-.035.495.33.686 1.155.495 1.918-.764 3.038-6.416 7.341-11.379 9.554.612 1.637 2.682 6.267 4.206 9.111 1.663 3.119 3.42 4.575 6.147 4.737 1.46.085 3.014-.447 3.893-1.22l.148-.14-.013.03c.194-.204.511.077.366.323a6.5 6.5 0 0 1-4.992 2.867c-6.345.427-8.774-3.87-13.304-14.494-.366.126-.809.288-1.255.45-.075.187-2.07 5.642-2.13 5.823-.944 2.87-1.005 4.442-.358 4.895.145.09.074.333-.178.414-2.527.796-4.853-.696-3.559-4.442 1.161-3.316 5.69-16.18 6.914-19.626.427-1.294.197-2.125-.492-2.306C8.506 1.78.877 8.749 1.971 15.184c.19 1.12.98 1.747 1.378 1.663a.133.133 0 0 1 .156.159 1.508 1.508 0 0 1-1.845 1.032C.49 17.782.107 16.527.043 15.88-.601 9.22 6.148 1.23 12.389.58c2.378-.25 4.61.96 3.64 4.772zm24.04 9.913-.06.207-2.83 8.16c-.304.85-.1 1.737.501 1.902 1.757.482 4.028-2.145 5.131-4.733a67.794 67.794 0 0 0 1.476-3.815c.582-1.643 1.106-3.183.783-3.908-.075-.168.045-.256.223-.35.505-.255 2.226-.825 3.141.068.695.674.609 1.771-.03 3.437l-.096.242.22-.273c2.703-3.3 4.792-4.292 6.563-3.597l.147.062c2.381 1.074 1.146 5.215-2.116 5.48-.2.017-.356-.126-.158-.407.395-.605.356-1.909-.796-2.022-1.152-.113-2.83 1.207-4.038 2.844-1.084 1.45-2.2 3.911-3.322 7.273-.272.818-.143 1.012-.11 1.067a.1.1 0 0 1 0 .094c-.143.272-.965.596-1.76.596-1.625-.007-2.291-.945-1.967-2.437-1.848 1.764-3.711 2.614-5.355 2.466a2.524 2.524 0 0 1-2.236-3.103c-1.426 1.809-3.542 3.268-5.697 3.067-2.155-.2-3.5-1.666-2.802-4.788.59-2.598 1.592-5.29 2.207-7.027.514-1.456.618-2.407.294-2.75-.103-.114.055-.25.194-.324 1.69-.886 4.394-.314 3.63 2.09-.802 2.527-2.255 6.49-2.55 7.4-.737 2.287-.29 3.523.755 3.58 1.045.06 2.43-.96 3.42-2.503 1.76-2.524 2.581-5.685 3.377-7.882.204-.56.527-1.866.185-2.352-.091-.123.067-.258.275-.372 1.537-.849 4.285-.64 3.402 2.608z"
+                    fill="#5F0080" />
+                </g>
+              </svg>
+            </a>
+          </li>
+          <li><a href="#"><span class="logo-1st-txt">마켓컬리</span></a></li>
+          <span class="logo-center-txt">|</span>
+          <li><a href="#"><span class="logo-2nd-txt">뷰티컬리</span></a></li>
+        </ul>
+      </div>
+
+      <div class="header__main-2nd-shearch">
+        <div class="shearch-box">
+          <form action="#" method="post">
+            <input class="search-txt" type="text" placeholder="검색어를 입력해 주세요.">
+            <button><span><i class="fa-solid fa-magnifying-glass"></i></span></button>
+          </form>
+        </div>
+      </div>
+      <div class="header__main-3rd-icon">
+        <a href="#">
+          <span>
+            <i class="fa-solid fa-location-dot"></i>
+          </span>
+        </a>
+        <a href="#">
+          <span>
+            <i class="fa-solid fa-heart"></i>
+          </span>
+        </a>
+        <a href="#">
+          <span>
+            <i class="fa-solid fa-cart-shopping"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="header__nav-con">
+      <div class="header__nav">
+        <div class="header-category-box">
+          <span class="header-category-icon">
+            <i class="fa-solid fa-bars"></i>
+          </span>
+          <span>카테고리</span>
+          <ul>
+            <li>
+              <a href="#">
+                <span class="category-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/1/4IYbd0CEWkokpqiN00CAL9cDC2Q7nT101TDEn0tF.png"
+                    alt=""></span>
+                <span class="hover-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/1/D2tq9D88GPQCRZd2FC04ct0BI0xId0Z1wTFWb7Wu.png"
+                    alt=""></span>
+                <span>채소</span>
+              </a>
+              <ul>
+                <li><a href="#"><span>친환경</span></a></li>
+                <li><a href="#"><span>고구마</span></a></li>
+                <li><a href="#"><span>당근</span></a></li>
+                <li><a href="#"><span>배추</span></a></li>
+                <li><a href="#"><span>오이</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                <span class="category-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/2/DNXCcUaXoXakDOdHiGhIMCNUeUjJioG9EyeQ7RRX.png"
+                    alt=""></span>
+                <span class="hover-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/2/EO7bBGPrhrByqlpJYMuIFOLWo0IiOMkgMYar4Tjv.png"
+                    alt=""></span>
+                <span>과일 · 견과 · 쌀</span>
+              </a>
+              <ul>
+                <li><a href="#"><span>친환경</span></a></li>
+                <li><a href="#"><span>제철과일</span></a></li>
+                <li><a href="#"><span>국산과일</span></a></li>
+                <li><a href="#"><span>수입과일</span></a></li>
+                <li><a href="#"><span>간편과일</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                <span class="category-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/3/fivaoZPBTeqaDswJUgr3k0xMV0von36Qb9qnn7ZZ.png"
+                    alt=""></span>
+                <span class="hover-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/3/ZDTiP71KkstnCGkPmu67wHr0wcIo3QMLjyg2Kho3.png"
+                    alt=""></span>
+                <span>수산 · 해산 · 건어물</span>
+              </a>
+              <ul>
+                <li><a href="#"><span>제철생선</span></a></li>
+                <li><a href="#"><span>건어물</span></a></li>
+                <li><a href="#"><span>갑각류</span></a></li>
+                <li><a href="#"><span>해조류</span></a></li>
+                <li><a href="#"><span>수산가공품</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                <span class="category-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/4/jj6zZg2sY94aytlc2k1udIAmWWvmUignR9VYaMcm.png"
+                    alt=""></span>
+                <span class="hover-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/4/EOMHR0scDTojmp9yxY6ZK6U01fkqUEg19nPMyQFG.png"
+                    alt=""></span>
+                <span>정육 · 계란</span>
+              </a>
+              <ul>
+                <li><a href="#"><span>국내산 소고기</span></a></li>
+                <li><a href="#"><span>수입산 소고기</span></a></li>
+                <li><a href="#"><span>돼지고기</span></a></li>
+                <li><a href="#"><span>닭고기</span></a></li>
+                <li><a href="#"><span>계란류</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                <span class="category-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/5/CkyoRnUe2q9ngIOLW3bJPRYBw9xq9BHZ3fNQIq1c.png"
+                    alt=""></span>
+                <span class="hover-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/5/TmOAqHrU3DaZ9GtkfircoZQmd0xGaplSNoXw2q8V.png"
+                    alt=""></span>
+                <span>국 · 반찬 · 메인요리</span>
+              </a>
+              <ul>
+                <li><a href="#"><span>밀키트</span></a></li>
+                <li><a href="#"><span>밑반찬</span></a></li>
+                <li><a href="#"><span>육 가공품</span></a></li>
+                <li><a href="#"><span>메인요리</span></a></li>
+                <li><a href="#"><span>두부</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                <span class="category-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/6/kwat5Szmq0ONTpMd4hlbcGmCOBd3FsMPyTzWxKBb.png"
+                    alt=""></span>
+                <span class="hover-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/6/LZjcLmIFN6IqVsraCsArIE2zPh3u2i7foirsWHQZ.png"
+                    alt=""></span>
+                <span>샐러드 · 간편식</span>
+              </a>
+              <ul>
+                <li><a href="#"><span>샐러드</span></a></li>
+                <li><a href="#"><span>도시락</span></a></li>
+                <li><a href="#"><span>파스타</span></a></li>
+                <li><a href="#"><span>죽</span></a></li>
+                <li><a href="#"><span>선식</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                <span class="category-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/7/CL0LpJynh8Nh2Vqmnm62RVTPePWVU84VkWwQPjdO.png"
+                    alt=""></span>
+                <span class="hover-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/7/u9ClAhIMBYYrC3U9b3dvn9MEzqGPpL48E5fLldNv.png"
+                    alt=""></span>
+                <span>면 ·양념· 오일</span>
+              </a>
+              <ul>
+                <li><a href="#"><span>파스타</span></a></li>
+                <li><a href="#"><span>드레싱</span></a></li>
+                <li><a href="#"><span>양념</span></a></li>
+                <li><a href="#"><span>떡볶이</span></a></li>
+                <li><a href="#"><span>피자</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                <span class="category-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/8/bKllScRqF9gQ5q58LcmBfOOhgBrCOdVypPiRvQkL.png"
+                    alt=""></span>
+                <span class="hover-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/8/PsTvzGzTKzgmANHetZ1XDCBoIvHj874L9goGSKXx.png"
+                    alt=""></span>
+                <span>생수 · 음료 · 우유 · 커피</span>
+              </a>
+              <ul>
+                <li><a href="#"><span>생수 · 탄산수</span></a></li>
+                <li><a href="#"><span>쥬스 · 음료</span></a></li>
+                <li><a href="#"><span> 우유 · 두유 · 요거트</span></a></li>
+                <li><a href="#"><span>커피</span></a></li>
+                <li><a href="#"><span>차</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                <span class="category-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/9/5qKRHLtIeBWLxUPa1g3koUhqsAkc39YjtMnyIXCJ.png"
+                    alt=""></span>
+                <span class="hover-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/9/NQcAF49piGDLu6VFgONSsIHWF1xU01o95Azs7usZ.png"
+                    alt=""></span>
+                <span>간식 · 과자 · 떡</span>
+              </a>
+              <ul>
+                <li><a href="#"><span>과자 · 스낵 · 쿠키</span></a></li>
+                <li><a href="#"><span>초콜릿 · 젤리 · 캔디</span></a></li>
+                <li><a href="#"><span>떡 · 한과</span></a></li>
+                <li><a href="#"><span>아이스크림</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                <span class="category-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/10/bIjVH9L4oDFYv0GpjBijA6QQEjiDOW0KoflLVNC1.png"
+                    alt=""></span>
+                <span class="hover-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/10/H4Ivs7jCWSuhqh7ru3NetkS6Hhof7pvq3tWbujBr.png"
+                    alt=""></span>
+                <span>베이커리 · 치즈 · 델리</span>
+              </a>
+              <ul>
+                <li><a href="#"><span>식빵 · 빵류</span></a></li>
+                <li><a href="#"><span>잼 · 버터 · 스프레드</span></a></li>
+                <li><a href="#"><span>케이크 · 파이 · 디저트</span></a></li>
+                <li><a href="#"><span>치즈</span></a></li>
+                <li><a href="#"><span>델리</span></a></li>
+                <li><a href="#"><span>올리브 · 피클</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                <span class="category-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/11/vEGBXqN7a2bxTC3v6jntEzTqQiwG4ogLkiruPwRs.png"
+                    alt=""></span>
+                <span class="hover-2nd-icon"><img
+                    src="https://collection-image.kurly.com/site-category-groups/11/MFavdtAkcl2J3q5fiyKDYKBtKiu0D28z9fLd1JhN.png"
+                    alt=""></span>
+                <span>건강식품</span>
+              </a>
+              <ul>
+                <li><a href="#"><span>영양제</span></a></li>
+                <li><a href="#"><span>유산균</span></a></li>
+                <li><a href="#"><span>홍삼 · 인삼 · 꿀</span></a></li>
+                <li><a href="#"><span>건강즙 · 건강음료</span></a></li>
+                <li><a href="#"><span>건강분말 · 건강환</span></a></li>
+                <li><a href="#"><span>다이어트 · 이너뷰티</span></a></li>
+                <li><a href="#"><span>유아동</span></a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="header__nav-center-menu">
+          <ul>
+            <li>
+              <a href="#">
+                <span>
+                  신상품
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span>
+                  베스트
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span>
+                  알뜰쇼핑
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span>
+                  특가/혜택
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="header__nav-last-btn">
+          <button>
+            <span><span class="nav-last-btn__other-color">샛별ㆍ택배</span> 배송안내</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="banner-1">
+    <div class="swiper-box-1">
+      <!-- Slider main container -->
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <a href="#">
+              <img
+                src="https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/20139e33-d871-4de9-a2e8-18a3024af36d.jpg"
+                alt="">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img
+                src="https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/4b9459ab-c619-449b-b04c-f8f039b07775.jpg"
+                alt="">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img
+                src="https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/432a2bbc-bf8e-4cf1-ba7a-cc4c0a6c0ce5.jpg"
+                alt="">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img
+                src="https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/edc9e6db-ee42-47ab-9157-552fce0b3fbc.jpg"
+                alt="">
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="#">
+              <img
+                src="https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/9cef1d54-72cc-4f02-b63e-495170a02d5d.jpg"
+                alt="">
+            </a>
+          </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev">
+          <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="swiper-button-next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+
+        <!-- If we need scrollbar -->
+        <!--     <div class="swiper-scrollbar"></div> -->
+      </div>
+    </div>
+  </section>
+
+  <section class="list-1st">
+    <h1>이상품 어때요?</h1>
+
+    <div class="swiper-box-1">
+      <!-- Slider main container -->
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="content-box">
+
+              <!--1 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1657603843769l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[해담촌] 백김치</span></a>
+                  <a href="#"><span class="merchandise-won">4,770원</span></a>
+                  <a href="#">
+                    <span class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 13</span>
+                  </a>
+                </div>
+              </div>
+
+              <!--2 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1619763233839l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[쓰임]키엘로 2인 홈세트 코발트 블루</span></a>
+                  <a href="#"><span class="merchandise-won">70,000원</span></a>
+                  <a href="#">
+                    <span class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 13</span>
+                  </a>
+                </div>
+              </div>
+
+              <!--3 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1655473008977l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[스킨푸드]블랙 슈가 퍼펙트 에센셜 스크럽2X210g</span></a>
+                  <a href="#"><span class="merchandise-won"><span>30%</span>13,300원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">19000원</span></a>
+                  <a href="#">
+                    <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 418</p>
+                  </a>
+                </div>
+              </div>
+
+              <!--4 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1548047435248l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[워커힐]명월관 갈비탕</span></a>
+                  <a href="#"><span class="merchandise-won"><span></span>17,000원</span></a>
+                  <a href="#"><span class="merchandise-sale-won"></span></a>
+                  <a href="#">
+                    <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 999+</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="content-box">
+
+              <!--1 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1649299934860l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[크라운]땅콩카라멜 캔디324g</span></a>
+                  <a href="#"><span class="merchandise-won">4.320원</span></a>
+                  <a href="#">
+                    <span class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 250</span>
+                  </a>
+                </div>
+              </div>
+
+              <!--2 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/158261725933l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[쓰임][기획특가] [농부의 꽃] 튤립 1+1 (10송이)</span></a>
+                  <a href="#"><span class="merchandise-won"><span>33%</span>19,900원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">29,900원</span></a>
+                  <a href="#">
+                    <span class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 999+</span>
+                  </a>
+                </div>
+              </div>
+
+              <!--3 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/b8403035-c82f-45ce-91bc-520be86b2f56.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[푸르밀] 바나나킥 우유 (300mL x 2개)</span></a>
+                  <a href="#"><span class="merchandise-won"><span>30%</span>2,240원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">3,200원</span></a>
+                  <a href="#">
+                    <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 15</p>
+                  </a>
+                </div>
+              </div>
+
+              <!--4 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/c37dc985-0b15-4302-914a-4a9ac8319640.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[푸르밀] 가나쵸코 우유 (300mL x 2개)</span></a>
+                  <a href="#"><span class="merchandise-won"><span>30%</span>2,240원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">3,200원</span></a>
+                  <a href="#">
+                    <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 25</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="content-box">
+
+              <!--1 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1499675402657l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[한일관 X 백년가게] 등심 불고기</span></a>
+                  <a href="#"><span class="merchandise-won"><span>15%</span>25,415원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">29,900</span></a>
+                  <a href="#">
+                    <span class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 9,999+</span>
+                  </a>
+                </div>
+              </div>
+
+              <!--2 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1655879101250l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[제주 산방식당] 비빔밀냉면 (2인분)</span></a>
+                  <a href="#"><span class="merchandise-won"><span>10%</span>8,800원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">9,800</span></a>
+                  <a href="#">
+                    <span class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 999+</span>
+                  </a>
+                </div>
+              </div>
+
+              <!--3 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/c172b386-9924-4077-8056-3cbbe7ebcd80.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[러쉬] 트루팩 기획 세트 (카타스트로피 코스메틱+코스메틱 워리어+돈트 룩 앳 미)</span></a>
+                  <a href="#"><span class="merchandise-won"><span></span>75,000원</span></a>
+                  <a href="#"><span class="merchandise-sale-won"></span></a>
+                  <a href="#">
+                    <p class="md-comment"><i class="fa-regular fa-comment-dots"></i></p>
+                  </a>
+                </div>
+              </div>
+
+              <!--4 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/a3b2e58a-c2df-4559-bae4-b89cc03eaac6.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[또보겠지떡볶이집] 떡볶이</span></a>
+                  <a href="#"><span class="merchandise-won"><span>13%</span>5,046원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">5,800원</span></a>
+                  <a href="#">
+                    <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 999+</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev">
+          <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="swiper-button-next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+
+        <!-- If we need pagination -->
+        <!-- <div class="swiper-pagination"></div> -->
+
+        <!-- If we need scrollbar -->
+        <!--<div class="swiper-scrollbar"></div> -->
+
+      </div>
+    </div>
+
+  </section>
+
+  <section class="banner-middle">
+    <div>
+      <a href="#">
+        <img src="https://product-image.kurly.com/banner/random-band/pc/img/ef6f750c-dc10-4d37-8057-5ac3559fa7b0.jpg"
+          alt="">
+      </a>
+    </div>
+  </section>
+
+  <section class="timeattack-list">
+    <ul class="timeattack-list-box">
+      <li class="timeattack-list__1st">
+        <h1>일일 특가</h1>
+        <h2>24시간 한정 특가</h2>
+        <p>망설이면 늦어요!</p>
+      </li>
+      <li class="timeattack-list__center">
+        <a href="#">
+          <div class="img-box">
+            <img src="https://product-image.kurly.com/product/image/081e5a2e-73c5-4b83-bf5c-f555daf96f0a.jpg" alt="">
+            <button class="timeattack-list__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+          </div>
+          <p class="md-comment"> 완도산 건미역으로 끓인</p>
+          <p>마마리 들깨 미역국</p>
+          <p class="merchandise-won"><span>30%</span>3,125원<span class="merchandise-sale-won">4,500원</span></p>
+        </a>
+        <a href="#">
+          <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 999+</p>
+        </a>
+      </li>
+      <li class="timeattack-list__last">
+        <a href="#">
+          <div class="img-box">
+            <img src="https://product-image.kurly.com/product/image/edc67698-c84f-4107-b484-5379843ca55a.jpeg" alt="">
+            <button class="timeattack-list__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+          </div>
+          <p class="md-comment"> 정상가: 1장2,360원→할인가: 1장 1,699원</p>
+          <p>통등심 돈까스 120gX5pk</p>
+          <p class="merchandise-won"><span>28%</span>8,496원<span class="merchandise-sale-won">11,800원</span></p>
+        </a>
+        <a href="#">
+          <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 999+</p>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="list-1st">
+    <h1>이상품 어때요?</h1>
+
+    <div class="swiper-box-1">
+      <!-- Slider main container -->
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="content-box">
+
+              <!--1 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1657603843769l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[해담촌] 백김치</span></a>
+                  <a href="#"><span class="merchandise-won">4,770원</span></a>
+                  <a href="#">
+                    <span class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 13</span>
+                  </a>
+                </div>
+              </div>
+
+              <!--2 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1619763233839l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[쓰임]키엘로 2인 홈세트 코발트 블루</span></a>
+                  <a href="#"><span class="merchandise-won">70,000원</span></a>
+                  <a href="#">
+                    <span class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 13</span>
+                  </a>
+                </div>
+              </div>
+
+              <!--3 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1655473008977l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[스킨푸드]블랙 슈가 퍼펙트 에센셜 스크럽2X210g</span></a>
+                  <a href="#"><span class="merchandise-won"><span>30%</span>13,300원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">19000원</span></a>
+                  <a href="#">
+                    <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 418</p>
+                  </a>
+                </div>
+              </div>
+
+              <!--4 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1548047435248l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[워커힐]명월관 갈비탕</span></a>
+                  <a href="#"><span class="merchandise-won"><span></span>17,000원</span></a>
+                  <a href="#"><span class="merchandise-sale-won"></span></a>
+                  <a href="#">
+                    <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 999+</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="content-box">
+
+              <!--1 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1649299934860l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[크라운]땅콩카라멜 캔디324g</span></a>
+                  <a href="#"><span class="merchandise-won">4.320원</span></a>
+                  <a href="#">
+                    <span class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 250</span>
+                  </a>
+                </div>
+              </div>
+
+              <!--2 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/158261725933l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[쓰임][기획특가] [농부의 꽃] 튤립 1+1 (10송이)</span></a>
+                  <a href="#"><span class="merchandise-won"><span>33%</span>19,900원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">29,900원</span></a>
+                  <a href="#">
+                    <span class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 999+</span>
+                  </a>
+                </div>
+              </div>
+
+              <!--3 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/b8403035-c82f-45ce-91bc-520be86b2f56.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[푸르밀] 바나나킥 우유 (300mL x 2개)</span></a>
+                  <a href="#"><span class="merchandise-won"><span>30%</span>2,240원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">3,200원</span></a>
+                  <a href="#">
+                    <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 15</p>
+                  </a>
+                </div>
+              </div>
+
+              <!--4 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/c37dc985-0b15-4302-914a-4a9ac8319640.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[푸르밀] 가나쵸코 우유 (300mL x 2개)</span></a>
+                  <a href="#"><span class="merchandise-won"><span>30%</span>2,240원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">3,200원</span></a>
+                  <a href="#">
+                    <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 25</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="content-box">
+
+              <!--1 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1499675402657l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[한일관 X 백년가게] 등심 불고기</span></a>
+                  <a href="#"><span class="merchandise-won"><span>15%</span>25,415원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">29,900</span></a>
+                  <a href="#">
+                    <span class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 9,999+</span>
+                  </a>
+                </div>
+              </div>
+
+              <!--2 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1655879101250l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[제주 산방식당] 비빔밀냉면 (2인분)</span></a>
+                  <a href="#"><span class="merchandise-won"><span>10%</span>8,800원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">9,800</span></a>
+                  <a href="#">
+                    <span class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 999+</span>
+                  </a>
+                </div>
+              </div>
+
+              <!--3 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/c172b386-9924-4077-8056-3cbbe7ebcd80.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[러쉬] 트루팩 기획 세트 (카타스트로피 코스메틱+코스메틱 워리어+돈트 룩 앳 미)</span></a>
+                  <a href="#"><span class="merchandise-won"><span></span>75,000원</span></a>
+                  <a href="#"><span class="merchandise-sale-won"></span></a>
+                  <a href="#">
+                    <p class="md-comment"><i class="fa-regular fa-comment-dots"></i></p>
+                  </a>
+                </div>
+              </div>
+
+              <!--4 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/a3b2e58a-c2df-4559-bae4-b89cc03eaac6.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[또보겠지떡볶이집] 떡볶이</span></a>
+                  <a href="#"><span class="merchandise-won"><span>13%</span>5,046원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">5,800원</span></a>
+                  <a href="#">
+                    <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 999+</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev">
+          <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="swiper-button-next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+
+        <!-- If we need pagination -->
+        <!-- <div class="swiper-pagination"></div> -->
+
+        <!-- If we need scrollbar -->
+        <!--<div class="swiper-scrollbar"></div> -->
+
+      </div>
+    </div>
+
+  </section>
+
+  <section class="banner-middle">
+    <div>
+      <a href="#">
+        <img src="https://product-image.kurly.com/banner/random-band/pc/img/307c89fd-ffd4-4292-bfdb-f4e804b3853c.jpg"
+          alt="">
+      </a>
+    </div>
+  </section>
+
+  <section class="article">
+
+    <ul class="article-top">
+      <li class="article-text">
+        <a href="#">
+          <h1>
+            요리의 핵심 아이템 <i class="fa-solid fa-utensils"></i> <i class="fa-regular fa-face-grin-hearts"></i>
+          </h1>
+          <p>
+            요리를 사랑한다면 누구나 사랑할 만할 아이템을 가져왔어요! sns에서 핫한 아이템부터, 주방 소도구와 외국에서 입소문난 글로벌 아이템까지! 요리장인들이 사랑하는 아이템을 종류별로 가져왔어요!
+            나만의 주방을 완성하여 요리장인될 준비가 되었다면 여기로 오세요~ <i class="fa-regular fa-face-kiss-wink-heart"></i>
+          </p>
+        </a>
+      </li>
+      <li class="article-img">
+        <a href="#">
+          <img
+            src="https://product-image.kurly.com/cdn-cgi/image/quality=85,width=1230/main/random-collection/article/pc/img/6384427c-1663-4b8f-957f-ef996c703cfb.png"
+            alt="">
+        </a>
+      </li>
+    </ul>
+
+    <ul class="article-items">
+      <li class="article-items-left">
+        <div class="article-items__img">
+          <a href="#">
+            <img
+              src="https://product-image.kurly.com/cdn-cgi/image/quality=85,width=144/product/image/0b2d5115-257d-4151-9b7b-8e49ecee3293.jpg"
+              alt="">
+          </a>
+        </div>
+        <div class="article-items__text">
+          <a href="#">
+            <p>[크루크제] 북유럽 라이스팟 2.0L 2종(택1)</p>
+            <p class="merchandise-won"><span class="merchandise-color">33%</span>253,400원
+              <span class="merchandise-sale-won">380,000원</span>
+            </p>
+          </a>
+        </div>
+        <div class="article-items__btn">
+          <a href="#">
+            <button><i class="fa-solid fa-cart-shopping"></i><span>담기</span></button>
+          </a>
+        </div>
+      </li>
+      <li class="article-items-right">
+        <div class="article-items__img">
+          <a href="#">
+            <img src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=144/shop/data/goods/1653053070355l0.jpg"
+              alt="">
+          </a>
+        </div>
+        <div class="article-items__text">
+          <a href="#">
+            <p>[글로벌] 미니쵸퍼</p>
+            <p class="merchandise-won">82,000원
+            </p>
+          </a>
+        </div>
+        <div class="article-items__btn">
+          <a href="#">
+            <button><i class="fa-solid fa-cart-shopping"></i><span>담기</span></button>
+          </a>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="article-items">
+      <li class="article-items-left">
+        <div class="article-items__img">
+          <a href="#">
+            <img src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=144/shop/data/goods/1572943048210l0.jpg"
+              alt="">
+          </a>
+        </div>
+        <div class="article-items__text">
+          <a href="#">
+            <p>[글로벌] 나이프 7종(택1)</p>
+            <p class="merchandise-won">76,000원~
+            </p>
+          </a>
+        </div>
+        <div class="article-items__btn">
+          <a href="#">
+            <button><i class="fa-solid fa-cart-shopping"></i><span>담기</span></button>
+          </a>
+        </div>
+      </li>
+      <li class="article-items-right">
+        <div class="article-items__img">
+          <a href="#">
+            <img src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=144/shop/data/goods/1648603967419l0.jpg"
+              alt="">
+          </a>
+        </div>
+        <div class="article-items__text">
+          <a href="#">
+            <p>[글로벌] 찹&슬라이스 중식도 2종(택1)</p>
+            <p class="merchandise-won"><span class="merchandise-color">33%</span>189,000원
+              <span class="merchandise-sale-won">285,310원</span>
+            </p>
+          </a>
+        </div>
+        <div class="article-items__btn">
+          <a href="#">
+            <button><i class="fa-solid fa-cart-shopping"></i><span>담기</span></button>
+          </a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="article-items__btm-btn">
+      <a href="#">
+        <button><span>전체보기 > </span></button>
+      </a>
+    </div>
+
+  </section>
+
+  <section class="list-1st">
+    <h1>이상품 어때요?</h1>
+
+    <div class="swiper-box-1">
+      <!-- Slider main container -->
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="content-box">
+
+              <!--1 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1649299934860l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[크라운]땅콩카라멜 캔디324g</span></a>
+                  <a href="#"><span class="merchandise-won">4.320원</span></a>
+                  <a href="#">
+                    <span class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 250</span>
+                  </a>
+                </div>
+              </div>
+
+              <!--2 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/158261725933l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[쓰임][기획특가] [농부의 꽃] 튤립 1+1 (10송이)</span></a>
+                  <a href="#"><span class="merchandise-won"><span>33%</span>19,900원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">29,900원</span></a>
+                  <a href="#">
+                    <span class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 999+</span>
+                  </a>
+                </div>
+              </div>
+
+              <!--3 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/b8403035-c82f-45ce-91bc-520be86b2f56.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[푸르밀] 바나나킥 우유 (300mL x 2개)</span></a>
+                  <a href="#"><span class="merchandise-won"><span>30%</span>2,240원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">3,200원</span></a>
+                  <a href="#">
+                    <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 15</p>
+                  </a>
+                </div>
+              </div>
+
+              <!--4 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/c37dc985-0b15-4302-914a-4a9ac8319640.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[푸르밀] 가나쵸코 우유 (300mL x 2개)</span></a>
+                  <a href="#"><span class="merchandise-won"><span>30%</span>2,240원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">3,200원</span></a>
+                  <a href="#">
+                    <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 25</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="content-box">
+
+              <!--1 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1499675402657l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[한일관 X 백년가게] 등심 불고기</span></a>
+                  <a href="#"><span class="merchandise-won"><span>15%</span>25,415원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">29,900</span></a>
+                  <a href="#">
+                    <span class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 9,999+</span>
+                  </a>
+                </div>
+              </div>
+
+              <!--2 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1655879101250l0.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[제주 산방식당] 비빔밀냉면 (2인분)</span></a>
+                  <a href="#"><span class="merchandise-won"><span>10%</span>8,800원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">9,800</span></a>
+                  <a href="#">
+                    <span class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 999+</span>
+                  </a>
+                </div>
+              </div>
+
+              <!--3 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/c172b386-9924-4077-8056-3cbbe7ebcd80.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[러쉬] 트루팩 기획 세트 (카타스트로피 코스메틱+코스메틱 워리어+돈트 룩 앳 미)</span></a>
+                  <a href="#"><span class="merchandise-won"><span></span>75,000원</span></a>
+                  <a href="#"><span class="merchandise-sale-won"></span></a>
+                  <a href="#">
+                    <p class="md-comment"><i class="fa-regular fa-comment-dots"></i></p>
+                  </a>
+                </div>
+              </div>
+
+              <!--4 -->
+              <div class="product-list">
+                <div class="img-box">
+                  <a href="#">
+                    <img
+                      src="https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/a3b2e58a-c2df-4559-bae4-b89cc03eaac6.jpg"
+                      alt="">
+                  </a>
+                  <button class="list-1st__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+                </div>
+                <div class="text-box">
+                  <a href="#"><span>[또보겠지떡볶이집] 떡볶이</span></a>
+                  <a href="#"><span class="merchandise-won"><span>13%</span>5,046원</span></a>
+                  <a href="#"><span class="merchandise-sale-won">5,800원</span></a>
+                  <a href="#">
+                    <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 999+</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev">
+          <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="swiper-button-next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+
+        <!-- If we need pagination -->
+        <!-- <div class="swiper-pagination"></div> -->
+
+        <!-- If we need scrollbar -->
+        <!--<div class="swiper-scrollbar"></div> -->
+
+      </div>
+    </div>
+
+  </section>
+
+  <section class="MD-list">
+    <h1>MD의 추천</h1>
+    <ul class="MD-list-button">
+      <li>
+        <button class="fst-button"><a href="#">채소</a></button>
+        <button><a href="#">과일 · 견과 · 쌀</a></button>
+        <button><a href="#">수산 · 해산 · 건어물</a></button>
+        <button><a href="#">정육 · 계란</a></button>
+        <button><a href="#">국 · 반찬 · 메인 요리</a></button>
+        <button><a href="#">샐러드 · 간편식</a></button>
+        <button><a href="#">면 · 양념 · 오일</a></button>
+      </li>
+      <li class="MD-list-button__ctr">
+        <button><a href="#">생수 · 음료 · 우유 · 커피</a></button>
+        <button><a href="#">간식 · 과자 · 떡</a></button>
+        <button><a href="#">베이커리 · 치즈 · 델리</a></button>
+        <button><a href="#">건강식품</a></button>
+        <button><a href="#">와인</a></button>
+        <button><a href="#">전통주</a></button>
+        <button><a href="#">생활용품 · 리빙 · 캠핑</a></button>
+      </li>
+      <li>
+        <button><a href="#">스킨케어 · 메이크업</a></button>
+        <button><a href="#">헤어 · 바디 · 구강</a></button>
+        <button><a href="#">주방용품</a></button>
+        <button><a href="#">가전제품</a></button>
+        <button><a href="#">선물하기</a></button>
+        <button><a href="#">반려동물</a></button>
+        <button><a href="#">베이비 · 키즈 · 완구</a></button>
+        <button><a href="#">여행</a></button>
+      </li>
+    </ul>
+
+    <ul class="MD-list-box">
+      <li>
+        <a href="#">
+          <div class="img-box">
+            <img src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1648207740760l0.jpeg"
+              alt="">
+            <button class="MD-list__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+          </div>
+          <p>영암 친환경 꿀고구마 2KG</p>
+          <p class="merchandise-won"><span>10%</span>12.500원</p>
+          <p class="merchandise-sale-won">13,900원</p>
+        </a>
+        <a href="#">
+          <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 9,999+</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div class="img-box">
+            <img
+              src="https://product-image.kurly.com/cdn-cgi/image/quality=85,width=400/product/image/6a421289-3c58-4cf5-b584-460abd08605a.jpg"
+              alt="">
+            <button class="MD-list__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+          </div>
+          <p>[kf365]무농약 국산콩 콩나물 300g</p>
+          <p class="merchandise-won">1,280원</p>
+        </a>
+        <a href="#">
+          <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 479</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div class="img-box">
+            <img src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/158261725933l0.jpg"
+              alt="">
+            <button class="MD-list__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+          </div>
+          <p>[기획특가] [농부의 꽃]튤립 1+1 (10송이)</p>
+          <p class="merchandise-won"><span>33%</span>19,900원</p>
+          <p class="merchandise-sale-won">29,900원</p>
+        </a>
+        <a href="#">
+          <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 999+</p>
+        </a>
+      </li>
+      <li class="MD-list-box__last-md">
+        <a href="#">
+          <div class="img-box">
+            <img src="https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=400/shop/data/goods/1653037915850l0.jpeg"
+              alt="">
+            <button class="MD-list__cart"><span><i class="fa-solid fa-cart-shopping"></i></span></button>
+          </div>
+          <p>친환경 당근 500g</p>
+          <p class="merchandise-won"><span>14%</span>4,280원</p>
+          <p class="merchandise-sale-won">4,980원</p>
+        </a>
+        <a href="#">
+          <p class="md-comment"><i class="fa-regular fa-comment-dots"></i> 후기 9,999+</p>
+
+        </a>
+      </li>
+    </ul>
+    <div class="MD-list__btm-btn">
+      <a href="#">
+        <button><span>채소 전체보기</span></button>
+      </a>
+    </div>
+  </section>
+
+  <section class="recipe-list">
+    <h1>컬리의 레시피 ></h1>
+    <ul class="recipe-list-box">
+      <li>
+        <a href="#">
+          <div class="img-box">
+            <img src="https://img-cf.kurly.com/shop/data/board/recipe/m/main_v2_c88ed6821dc2a8eb.jpg" alt="">
+          </div>
+          <p>감홍로 아포카토</p>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <div class="img-box">
+            <img src="https://img-cf.kurly.com/shop/data/board/recipe/m/main_v2_3400d39f6913d10d.jpg" alt="">
+
+          </div>
+          <p>토끼 소주 블랙 칵테일</p>
+        </a>
+      </li>
+
+      <li class="recipe-list-box__last-md ">
+        <a href="#">
+          <div class="img-box">
+            <img src="https://img-cf.kurly.com/shop/data/board/recipe/m/main_v2_9e4afceeede8e24d.jpg" alt="">
+          </div>
+          <p>토끼 소주 화이트 칵테일</p>
+        </a>
+      </li>
+
+    </ul>
+  </section>
+
+  <section class="insta-review-list">
+    <h1>인스타그램 고객 후기</h1>
+    <p>더 많은 고객 후기가 궁금하다면?</p>
+    <ul class="insta-review-list-box">
+      <li>
+        <a href="#">
+          <div class="img-box">
+            <img src="IMAGE-1.jpg" alt="">
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div class="img-box">
+            <img src="IMAGE-2.jpg" alt="">
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div class="img-box">
+            <img src="IMAGE-3.jpg" alt="">
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div class="img-box">
+            <img src="IMAGE-4.jpg" alt="">
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div class="img-box">
+            <img src="IMAGE-5.jpg" alt="">
+          </div>
+        </a>
+      </li>
+
+      <li class="insta-review-list-box__last-md ">
+        <a href="#">
+          <div class="img-box">
+            <img src="IMAGE-6.jpg" alt="">
+          </div>
+        </a>
+      </li>
+    </ul>
+    <p>더 많은 고객 후기가 궁금하다면?</p>
+    <p class="insta-review-list__id"><a href="#">@marketkurly_regram</a></p>
+  </section>
+
+
+  <footer>
+
+    <div>
+
+      <div class="footer-left">
+        <h2>고객 행복 센터</h2>
+        <h1>1644-1107<span>월~토요일 오전7시-오후 6시</span></h1>
+        <ul>
+          <li>
+            <div><a href="#">카카오톡 문의</a></div>
+            <div class="footer-1st-right">
+              <p>월~토요일 | 오전 7시 - 오후 6시</p>
+              <p>일/공휴일 | 오전 7시 - 오후 1시</p>
+            </div>
+          </li>
+          <li>
+            <div><a href="#">1 : 1 문의</a></div>
+            <div class="footer-1st-right">
+              <p>365일</p>
+              <p>고객센터 운영시간에 순차적으로 답변드리겠습니다.</p>
+            </div>
+          </li>
+          <li>
+            <div><a href="#">대량주문 문의</a></div>
+            <div class="footer-1st-right">
+              <p>월~금요일 | 오전 9시 - 오후 6시</p>
+              <p>점심 시간 | 낮 12시 - 오후 1시</p>
+            </div>
+          </li>
+        </ul>
+        <p>비회원 문의 : help@kurlycorp.com</p>
+        <p>비회원 대량주문 문의 : kurlygift@kurlycorp.com</p>
+      </div>
+
+      <div class="footer-right">
+        <p>
+          <a href="#">
+            <span>컬리소개</span>
+          </a>
+          <a href="#">
+            <span>컬리소개영상</span>
+          </a>
+          <a href="#">
+            <span>인재채용</span>
+          </a>
+          <a href="#">
+            <span>이용약관</span>
+          </a>
+          <a href="#">
+            <span class="footer__font-bold">개인정보처리방침</span>
+          </a>
+          <a href="#">
+            <span>이용안내</span>
+          </a>
+        </p>
+        <div class="footer__kurky-info">
+          <p>
+            법인명 (상호) : 주식회사 컬리 | 사업자등록번호 : 261-81-23567 | 사업자정보 확인
+          </p>
+          <p>
+            통신판매업 : 제 2018-서울강남-01646 호 | 개인정보보호책임자 : 이원준
+          </p>
+          <p class=>
+            주소 : 서울특별시 강남구 테헤란로 133, 18층(역삼동) | 대표이사 : 김슬아
+          </p>
+          <p>
+            입점문의 : <a href="#">입점문의하기</a> | 제휴문의 : <a href="#">business@kurlycorp.com</a>
+          </p>
+          <p>
+            채용문의 : <a href="#">recruit@kurlycorp.com</a>
+          </p>
+          <p>
+            팩스: 070 - 7500 - 6098
+          </p>
+        </div>
+        <div class="footer-icon">
+          <a href="#">
+            <img src="https://res.kurly.com/pc/ico/1810/ico_instagram.png" alt="">
+          </a>
+          <a href="#">
+            <img src="https://res.kurly.com/pc/ico/1810/ico_fb.png" alt="">
+          </a>
+          <a href="#">
+            <img src="https://res.kurly.com/pc/ico/1810/ico_blog.png" alt="">
+          </a>
+          <a href="#">
+            <img src="https://res.kurly.com/pc/ico/1810/ico_naverpost.png" alt="">
+          </a>
+          <a href="#">
+            <img src="https://res.kurly.com/pc/ico/1810/ico_youtube.png" alt="">
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+
+</body>
+
+</html>
